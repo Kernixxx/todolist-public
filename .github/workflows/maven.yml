@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     
     services:
-      postgre:
+      postgres:
         image: postgre:12
         env: 
           POSTGRE_USER: ${{ secrets.DATABASE_USER }}
