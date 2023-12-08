@@ -23,9 +23,9 @@ jobs:
       postgre:
         image: postgre:12
         env: 
-          POSTGRE_USER: todolist_user
-          POSTGRE_PASSWORD: todolist_password
-          POSTGRE_BD: todolist
+          POSTGRE_USER: ${{ secrets.DATABASE_USER }}
+          POSTGRE_PASSWORD: ${{ secrets.PASSWORD }}
+          POSTGRE_BD: ${{ secrets.DATABASE_NAME }}
             
 
     steps:
