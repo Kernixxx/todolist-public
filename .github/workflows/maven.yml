@@ -18,15 +18,16 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     services:
-      postgres:
-        image: postgre:12
-        env: 
-          POSTGRE_USER: ${{ secrets.DATABASE_USER }}
-          POSTGRE_PASSWORD: ${{ secrets.PASSWORD }}
-          POSTGRE_BD: ${{ secrets.DATABASE_NAME }}
-            
+      postgre:
+        image : postgres:12
+        env:
+          POSTGRES_USER: ${{ secrets.DATABASE_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.DATABASE_NAME }}
+        ports:
+          - 5432:5432
 
     steps:
     - uses: actions/checkout@v3
@@ -37,6 +38,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B clean package 
-
-    
+      run: mvn -B clean package
